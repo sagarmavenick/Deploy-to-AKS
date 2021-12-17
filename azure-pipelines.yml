@@ -56,10 +56,11 @@ stages:
           - task: KubernetesManifest@0
             inputs:
               action: 'createSecret'
+              kubernetesServiceConnection: 'k8sdev-backend-test-default-1639751691507'
               namespace: 'default'
               secretType: 'dockerRegistry'
               secretName: '$(acrsecret)'
-              dockerRegistryEndpoint: 'klearstack'
+              dockerRegistryEndpoint: 'demo-acr-connection'
           - task: replacetokens@3
             displayName: Replace Tokens
             inputs:
